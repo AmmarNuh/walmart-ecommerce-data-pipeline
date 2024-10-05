@@ -57,6 +57,7 @@ def avg_weekly_sales_per_month(clean_data):
         .groupby('Month')                       # Group by the 'Month' column
         .agg({'Weekly_Sales': 'mean'})          # Calculate average weekly sales
         .reset_index()                          # Reset index
+        .rename(columns={'Weekly_Sales': 'Avg_Sales'})  # Rename Weekly_Sales' TO 'Avg_Sales'
         .round(2)                               # Round the results to two decimal places
     )
     return agg_data
