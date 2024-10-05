@@ -11,12 +11,21 @@ grocery_sales = pd.DataFrame({
 })
 
 # Execute the pipeline
+
+# Call the extract() function and store it as the "merged_df" variable
 merged_df = extract(grocery_sales, "extra_data.parquet")
+
+# Call the transform() function and pass the merged DataFrame
 clean_data = transform(merged_df)
+
+# Call the avg_weekly_sales_per_month() function and pass the cleaned DataFrame
 avg_per_month = avg_weekly_sales_per_month(clean_data)
+
+# Call the load() function and pass the cleaned and aggregated DataFrames with their paths    
 load(clean_data, avg_per_month)
 
 # Validate file saving
+# Call the validation() function and pass first, the cleaned DataFrame path, and then the aggregated DataFrame path
 clean_data_path = 'clean_data.csv'
 agg_data_path = 'agg_data.csv'
 print("Clean data file exists:", validation(clean_data_path))
