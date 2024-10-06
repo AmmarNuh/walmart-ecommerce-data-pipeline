@@ -1,6 +1,6 @@
 import pandas as pd
 #import matplotlib.pyplot as plt
-from pipeline_units.data_pipeline import extract, transform, avg_weekly_sales_per_month, load, validation
+from pipeline_units import extract, transform, avg_weekly_sales_per_month, load, validation
 
 # Load your grocery sales DataFrame (replace with actual data loading)
 grocery_sales = pd.DataFrame({
